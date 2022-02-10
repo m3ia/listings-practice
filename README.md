@@ -6,8 +6,8 @@ The goals are, in decreasing level of priority:
 4. Paginate the listings, visually showing the number of records per page which a user can change, an indication of the current page number, and a way to navigate between them
 
 **To Do:**
-- [ ] Create component for Banner
-- [ ] Create component for listing
+- [x] Create component for Banner
+- [x] Create component for listing
 - [ ] Show a single listing
 - [ ] Show list of all listings, sorted in alphabetical order by property name
 - [ ] Calculate avg sq footage of unit type, avg sq footage of each property, range of possible occupancy of the unit type.
