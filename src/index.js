@@ -2,10 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Banner from './components/banner/Banner';
+import Listings from './components/listings/Listings';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Banner />
+    <Listings />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
