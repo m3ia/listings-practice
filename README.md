@@ -6,14 +6,14 @@ The goals are, in decreasing level of priority:
 4. Paginate the listings, visually showing the number of records per page which a user can change, an indication of the current page number, and a way to navigate between them
 
 **To Do:**
-[] Create component for Banner
-[] Create component for listing
-[] Show a single listing
-[] Show list of all listings, sorted in alphabetical order by property name
-[] Calculate avg sq footage of unit type, avg sq footage of each property, range of possible occupancy of the unit type.
-[] Display that data in a table associated with the property image
-[] Create filter input for property name text
-[] Create dropdown filter for unit amenities
-[] Create 2 text input filters on a minimum and maximum occupancy range
-[] paginate listings
+- [ ] Create component for Banner
+- [ ] Create component for listing
+- [ ] Show a single listing
+- [ ] Show list of all listings, sorted in alphabetical order by property name
+- [ ] Calculate avg sq footage of unit type, avg sq footage of each property, range of possible occupancy of the unit type.
+- [ ] Display that data in a table associated with the property image
+- [ ] Create filter input for property name text
+- [ ] Create dropdown filter for unit amenities
+- [ ] Create 2 text input filters on a minimum and maximum occupancy range
+- [ ] paginate listings
 
