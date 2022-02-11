@@ -1,11 +1,9 @@
-import { listings } from "../../mockData";
+import { useState } from 'react';
+import { listings } from '../../mockData';
 import '../../App.css';
 
-const listingsData = listings.sort((a, b) => a.name > b.name ? 1: -1);
-
-const unitTypes = [];
-
 /*
+Example format for the units Map: 
 {
   oneBdrm:
   { 
@@ -57,14 +55,17 @@ function unitMapCreator(units) {
   return Array.from(unitMap, ([key, value]) => [key, value]);
 }
 
-function ListingsBody() {
+function ListingsBody({searchTerm}) {
+  const listingsData = 
+    searchTerm == "" ? 
+    listings.sort((a, b) => a.name > b.name ? 1: -1) : 
+    listings.filter(
+      ({name}) => name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase()))
+    .sort((a, b) => a.name > b.name ? 1: -1);
     return (
     <>
-      <header>
-        <p>
-          <code>Here is the Listings Body</code>
-        </p>
-      </header>
       <div className="Listings-table">
         <table className="table-auto" aria-label="simple table">
           <thead>
@@ -95,7 +96,7 @@ function ListingsBody() {
                   </thead>
                   <tbody>
                     {unitMapCreator(listing.units).map(([unitType, stats]) => (
-                      <tr>
+                      <tr key={unitType}>
                         <td align="left">{unitType}</td>
                         <td align="center">~{(stats.avgSqFt).toFixed(0)} sqft</td>
                         <td align="center">{stats.min} - {stats.max}</td>
