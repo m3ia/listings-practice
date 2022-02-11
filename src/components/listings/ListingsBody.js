@@ -27,6 +27,13 @@ const unitTypes = [];
 */
 function unitMapCreator(units) {
   const unitMap = new Map();
+  const unitTypes = {
+    studio: 'Studio',
+    oneBdrm: '1-bedroom',
+    twoBdrm: '2-bedroom',
+    threeBdrm: '3-bedroom',
+    fourBdrm: '4-bedroom'
+  }
   // Loop over units 
   units.forEach( (unit) => {
     // Check if type already exists, and if so, update it
@@ -38,29 +45,28 @@ function unitMapCreator(units) {
       stats.sqFt.push(unit.sqft);
       stats.avgSqFt = stats.sqFt.reduce((a, b) => a + b) / stats.sqFt.length;  
     } else {
-      unitMap.set(unit.type, {
+      unitMap.set(unitTypes[unit.type], {
         min: unit.minOccupancy,
         max: unit.maxOccupancy,
         sqFt: [unit.sqft],
-        avgSqFt: [unit.sqft]
+        avgSqFt: unit.sqft
       })
     }
   });
-
   // Returns an array of unitMap's key-value pairs, from https://stackoverflow.com/questions/43885365/using-map-on-an-iterator
   return Array.from(unitMap, ([key, value]) => [key, value]);
 }
 
 function ListingsBody() {
     return (
-    <div className="Listings-container">
+    <>
       <header>
         <p>
           <code>Here is the Listings Body</code>
         </p>
       </header>
-      <body className="Listings-table">
-        <table class="table-auto" aria-label="simple table">
+      <div className="Listings-table">
+        <table className="table-auto" aria-label="simple table">
           <thead>
             <tr>
               <th>Property Info</th>
@@ -79,18 +85,20 @@ function ListingsBody() {
                 <img src={listing.picture} />
               </td>
               <td align="right">
-                <table class="unit-table table-auto">
+                <table className="unit-table table-auto">
                   <thead>
-                    <th>Unit&nbsp;type</th>
-                    <th>Average&nbsp;Square&nbsp;Footage</th>
-                    <th>Range</th>
+                    <tr>
+                      <th align="left">Unit&nbsp;type</th>
+                      <th align="center">Average&nbsp;Sq.&nbsp;Ft</th>
+                      <th align="right">Range</th>
+                    </tr>
                   </thead>
                   <tbody>
                     {unitMapCreator(listing.units).map(([unitType, stats]) => (
                       <tr>
-                        <td>{unitType}</td>
-                        <td>{stats.avgSqFt}</td>
-                        <td>{stats.min} - {stats.max}</td>
+                        <td align="left">{unitType}</td>
+                        <td align="center">~{(stats.avgSqFt).toFixed(0)} sqft</td>
+                        <td align="center">{stats.min} - {stats.max}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -103,8 +111,8 @@ function ListingsBody() {
           ))}
         </tbody>
         </table>
-      </body>
-    </div>
+      </div>
+    </>
   );
 }
 
