@@ -10,12 +10,12 @@ function ListingsBody() {
         </p>
       </header>
       <body className="Listings-body">
-        {listings.map((listing, key) => {
+        {listings.sort((a, b) => a.name > b.name ? 1: -1).map((listing, key) => {
           return (
             <div key={key}>
-              {listing.name +
-                ", " +
-                listing.picture}
+              {listing.name}
+              <br />
+              <img src={listing.picture} />
             </div>
           );
         })}
