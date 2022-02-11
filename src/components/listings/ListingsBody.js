@@ -3,9 +3,8 @@ import '../../App.css';
 
 const listingsData = listings.sort((a, b) => a.name > b.name ? 1: -1);
 
-const unitTypes = [];
-
 /*
+Example format for the units Map: 
 {
   oneBdrm:
   { 
@@ -95,7 +94,7 @@ function ListingsBody() {
                   </thead>
                   <tbody>
                     {unitMapCreator(listing.units).map(([unitType, stats]) => (
-                      <tr>
+                      <tr key={unitType}>
                         <td align="left">{unitType}</td>
                         <td align="center">~{(stats.avgSqFt).toFixed(0)} sqft</td>
                         <td align="center">{stats.min} - {stats.max}</td>
