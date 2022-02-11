@@ -2,9 +2,6 @@ import { listings } from "../../mockData";
 import '../../App.css';
 
 function ListingsBody() {
-    // Example property
-    // const property1 = 
-    <listings />
     return (
     <div className="Listings-container">
       <header>
@@ -12,8 +9,16 @@ function ListingsBody() {
           <code>Here is the Listings Body</code>
         </p>
       </header>
-      <body>
-
+      <body className="Listings-body">
+        {listings.map((listing, key) => {
+          return (
+            <div key={key}>
+              {listing.name +
+                ", " +
+                listing.picture}
+            </div>
+          );
+        })}
       </body>
     </div>
   );
