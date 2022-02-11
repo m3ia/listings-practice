@@ -1,4 +1,5 @@
 import { listings } from "../../mockData";
+import '../../App.css';
 
 function ListingsBody() {
     // Example property
