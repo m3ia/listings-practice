@@ -64,6 +64,18 @@ function ListingsBody({searchTerm}) {
         .toLowerCase()
         .includes(searchTerm.toLowerCase()))
     .sort((a, b) => a.name > b.name ? 1: -1);
+    
+    // Pagination
+    console.log(listingsData.length);
+    const numberOfListings = listingsData.length;
+    const [listingsPerPage, setListingsPerPage] = useState(10);
+    const [currentPage, setCurrentPage] = useState(1);
+    const numberOfPages = Math.ceil(numberOfListings/listingsPerPage);
+    const firstListingIndex = (currentPage - 1) * listingsPerPage;
+    const lastListingIndex = (firstListingIndex + listingsPerPage);
+    
+    // use slice to show snapshots of listings?
+
     return (
     <>
       <div className="Listings-table">
@@ -109,7 +121,8 @@ function ListingsBody({searchTerm}) {
               <td align="left">Avg sq fooage Here</td>
               <td align="left">Range here</td> */}
             </tr>
-          ))}
+          )).slice(firstListingIndex, lastListingIndex)
+          }
         </tbody>
         </table>
       </div>
