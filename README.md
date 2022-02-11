@@ -12,8 +12,8 @@ The goals are, in decreasing level of priority:
 - [x] Show list of all listings, sorted in alphabetical order by property name
 - [x] Calculate avg sq footage of unit type, avg sq footage of each property, range of possible occupancy of the unit type.
 - [x] Display that data in a table associated with the property image
-- [ ] Create filter input for property name text
+- [x] Create filter input for property name text
 - [ ] Create [dropdown filter](https://www.w3schools.com/howto/howto_js_filter_dropdown.asp) for unit amenities
 - [ ] Create 2 text input filters on a minimum and maximum occupancy range
 - [ ] paginate listings
-
+- [ ] Style
