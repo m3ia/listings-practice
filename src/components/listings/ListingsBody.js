@@ -1,16 +1,5 @@
 import { listings } from "../../mockData";
 import '../../App.css';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-
-function createData(property, unitType, avgSqFt, range) {
-  return { property, unitType, avgSqFt, range };
-}
 
 const listingsData = listings.sort((a, b) => a.name > b.name ? 1: -1);
 
@@ -23,17 +12,16 @@ function ListingsBody() {
         </p>
       </header>
       <body className="Listings-table">
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-                <TableCell>Property</TableCell>
-                <TableCell align="right">Unit&nbsp;Type</TableCell>
-                <TableCell align="right">Avg&nbsp;Square&nbsp;Footage</TableCell>
-                <TableCell align="right">Range</TableCell>
-              </TableRow>
-          </TableHead>
-          <TableBody>
+        <table class="table-auto" aria-label="simple table">
+        <thead>
+          <tr>
+                <th>Property</th>
+                <th align="right">Unit&nbsp;Type</th>
+                <th align="right">Avg&nbsp;Square&nbsp;Footage</th>
+                <th align="right">Range</th>
+              </tr>
+          </thead>
+          <tbody>
           {/* {listingsData.map((listing, key) => {
           return (
             <div key={key}>
@@ -44,23 +32,22 @@ function ListingsBody() {
           );
         })} */}
           {listingsData.map((listing) => (
-            <TableRow
+            <tr
               key={listing.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell align="left">
+              <td align="left">
                 {listing.name}
                 <br />
                 <img src={listing.picture} />
-                </TableCell>
-              <TableCell align="left">Unit Type Here</TableCell>
-              <TableCell align="left">Avg sq fooage Here</TableCell>
-              <TableCell align="left">Range here</TableCell>
-            </TableRow>
+                </td>
+              <td align="left">Unit Type Here</td>
+              <td align="left">Avg sq fooage Here</td>
+              <td align="left">Range here</td>
+            </tr>
           ))}
-        </TableBody>
-        </Table>
-      </TableContainer>
+        </tbody>
+        </table>
       </body>
     </div>
   );

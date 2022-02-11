@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App, .Listings-container, .Banner-container {
   text-align: center;
 }
