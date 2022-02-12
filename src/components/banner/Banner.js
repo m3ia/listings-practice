@@ -1,5 +1,7 @@
+import { ArrowCircleRightIcon } from '@heroicons/react/outline'
 import '../../App.css';
 
+// For Property Name Filter
 const PropertyNameFilter = ({setSearchTerm}) => {
     return (
         <input
@@ -9,15 +11,54 @@ const PropertyNameFilter = ({setSearchTerm}) => {
       />
     );
 }
-    
-function Banner({setSearchTerm}) {
+
+// For Pagination
+const PaginationStation = ({ listingsPerPage, setListingsPerPage, currentPage, setCurrentPage, numberOfPages}) => {
+    return (
+        <>
+            <div>
+                <div className="pages-counter flex-auto">
+                    Page {currentPage} / {numberOfPages}
+                    <br />
+                    <div className="pagination-button">
+                        {currentPage > 1 && (
+                            <button className="rounded bg-orange-100 border-2 border-r-orange-500
+                            border-b-orange-500
+                            "
+                            onClick={() => setCurrentPage(currentPage-1)}
+                            >
+                                Previous Page
+                            </button>
+                        )} {' '}
+                        {currentPage < numberOfPages && (
+                            <button className="rounded bg-orange-100 border-2 border-r-orange-500
+                            border-b-orange-500
+                            "
+                            onClick={() => setCurrentPage(currentPage+1)}
+                            >
+                                Next Page
+                            </button>
+                        )
+                        }
+
+                    </div>
+                        <p>    Show 10  20  30
+                        </p>
+                </div>
+            </div>
+        </>
+    )
+}
+
+function Banner({setSearchTerm, currentPage, numberOfPages, setCurrentPage, setListingsPerPage}) {
   return (
     <div className="Banner-container">
-      <header>
-        <p>This is the banner</p>
-      </header>
       <div className="propertyNameFilter">
         <PropertyNameFilter setSearchTerm={setSearchTerm} />
+      </div>
+      <div className="pagination-station">
+        <PaginationStation currentPage={currentPage} numberOfPages={numberOfPages}
+        setCurrentPage={setCurrentPage} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { listings } from '../../mockData';
+// import { listings } from '../../mockData';
 import '../../App.css';
 
 /*
@@ -55,24 +55,21 @@ function unitMapCreator(units) {
   return Array.from(unitMap, ([key, value]) => [key, value]);
 }
 
-function ListingsBody({searchTerm}) {
-  const listingsData = 
-    searchTerm == "" ? 
-    listings.sort((a, b) => a.name > b.name ? 1: -1) : 
-    listings.filter(
-      ({name}) => name
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase()))
-    .sort((a, b) => a.name > b.name ? 1: -1);
+function ListingsBody({ listingsData, firstListingIndex, lastListingIndex }) {
+  // const listingsData = 
+  //   searchTerm == "" ? 
+  //   listings.sort((a, b) => a.name > b.name ? 1: -1) : 
+  //   listings.filter(
+  //     ({name}) => name
+  //       .toLowerCase()
+  //       .includes(searchTerm.toLowerCase()))
+  //   .sort((a, b) => a.name > b.name ? 1: -1);
     
     // Pagination
-    console.log(listingsData.length);
-    const numberOfListings = listingsData.length;
-    const [listingsPerPage, setListingsPerPage] = useState(10);
-    const [currentPage, setCurrentPage] = useState(1);
-    const numberOfPages = Math.ceil(numberOfListings/listingsPerPage);
-    const firstListingIndex = (currentPage - 1) * listingsPerPage;
-    const lastListingIndex = (firstListingIndex + listingsPerPage);
+    // console.log(listingsData.length);
+   
+    // const firstListingIndex = (currentPage - 1) * listingsPerPage;
+    // const lastListingIndex = (firstListingIndex + listingsPerPage);
     
     // use slice to show snapshots of listings?
 
