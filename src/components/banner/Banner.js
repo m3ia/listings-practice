@@ -42,23 +42,38 @@ const PaginationStation = ({ listingsPerPage, setListingsPerPage, currentPage, s
                         }
 
                     </div>
-                        <p>    Show 10  20  30
+                    <div className="number-listings-settings">
+                        <p>
+                            Show {' '}
+                            {[10, 20, 30].map((n) => (
+                                n !== listingsPerPage ? (
+                                    <a href ="#" onClick={() => setListingsPerPage(n)}>
+                                        <u>{n} {' '}</u>
+                                    </a>
+                                ) : `${n} ` 
+                            ))}
                         </p>
+                    </div>  
                 </div>
             </div>
         </>
     )
 }
 
-function Banner({setSearchTerm, currentPage, numberOfPages, setCurrentPage, setListingsPerPage}) {
+function Banner({setSearchTerm, currentPage, numberOfPages, setCurrentPage, setListingsPerPage, listingsPerPage}) {
   return (
     <div className="Banner-container">
       <div className="propertyNameFilter">
         <PropertyNameFilter setSearchTerm={setSearchTerm} />
       </div>
       <div className="pagination-station">
-        <PaginationStation currentPage={currentPage} numberOfPages={numberOfPages}
-        setCurrentPage={setCurrentPage} />
+        <PaginationStation 
+            currentPage={currentPage}
+            numberOfPages={numberOfPages}
+            setCurrentPage={setCurrentPage}
+            setListingsPerPage={setListingsPerPage}
+            listingsPerPage={listingsPerPage}
+        />
       </div>
     </div>
   );
