@@ -14,10 +14,10 @@
   padding: 20px;
   font-size: larger;
 }
-.Listings-container, .Banner-container {
+.Listings-container {
   /* text-align: center; */
   display: flex;
-  flex-direction: space-between;
+  justify-content: space-between;
 }
 
 .listing-info {
@@ -29,6 +29,17 @@
 
 .property-info {
   padding-right: 30px;
+}
+
+.pages-counter {
+  text-align: right;
+}
+
+.Banner-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-around;
+  align-items:center;
 }
 
 .App-logo {
