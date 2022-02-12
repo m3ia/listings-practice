@@ -74,8 +74,7 @@ function ListingsBody({ listingsData, firstListingIndex, lastListingIndex }) {
     // use slice to show snapshots of listings?
 
     return (
-    <>
-      <div className="Listings-table">
+      <div className="Listings-table container mx-auto flex">
         <table className="table-auto" aria-label="simple table">
           <thead>
             <tr>
@@ -123,7 +122,6 @@ function ListingsBody({ listingsData, firstListingIndex, lastListingIndex }) {
         </tbody>
         </table>
       </div>
-    </>
   );
 }
 
