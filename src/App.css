@@ -6,10 +6,29 @@
   padding-left: 200px;
   padding-right:200px;
 }
+
+.listings-heading {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  padding: 20px;
+  font-size: larger;
+}
 .Listings-container, .Banner-container {
   /* text-align: center; */
   display: flex;
   flex-direction: space-between;
+}
+
+.listing-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-around;
+}
+
+.property-info {
+  padding-right: 30px;
 }
 
 .App-logo {

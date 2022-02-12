@@ -1,5 +1,3 @@
-import { useState } from 'react';
-// import { listings } from '../../mockData';
 import '../../App.css';
 
 /*
@@ -56,71 +54,50 @@ function unitMapCreator(units) {
 }
 
 function ListingsBody({ listingsData, firstListingIndex, lastListingIndex }) {
-  // const listingsData = 
-  //   searchTerm == "" ? 
-  //   listings.sort((a, b) => a.name > b.name ? 1: -1) : 
-  //   listings.filter(
-  //     ({name}) => name
-  //       .toLowerCase()
-  //       .includes(searchTerm.toLowerCase()))
-  //   .sort((a, b) => a.name > b.name ? 1: -1);
-    
-    // Pagination
-    // console.log(listingsData.length);
-   
-    // const firstListingIndex = (currentPage - 1) * listingsPerPage;
-    // const lastListingIndex = (firstListingIndex + listingsPerPage);
-    
-    // use slice to show snapshots of listings?
-
     return (
       <div className="Listings-table container mx-auto flex">
-        <table className="table-auto" aria-label="simple table">
-          <thead>
-            <tr>
-              <th>Property Info</th>
-              <th align="right">Unit&nbsp;Info</th>
-            </tr>
-          </thead>
-          <tbody>
-          {listingsData.map((listing) => (
-            <tr
-              key={listing.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <td align="left">
-                {listing.name}
-                <br />
-                <img src={listing.picture} />
-              </td>
-              <td align="right">
-                <table className="unit-table table-auto">
-                  <thead>
-                    <tr>
-                      <th align="left">Unit&nbsp;type</th>
-                      <th align="center">Average&nbsp;Sq.&nbsp;Ft</th>
-                      <th align="right">Range</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {unitMapCreator(listing.units).map(([unitType, stats]) => (
-                      <tr key={unitType}>
-                        <td align="left">{unitType}</td>
-                        <td align="center">~{(stats.avgSqFt).toFixed(0)} sqft</td>
-                        <td align="center">{stats.min} - {stats.max}</td>
+          <div>
+          <div className="listings-heading">
+            <div>
+              Property Info
+            </div>
+            <div>
+              Unit Info
+            </div>
+          </div>
+            {listingsData.map((listing) => (
+              <div className="listing-info"
+                key={listing.id}
+              >
+                <div className="property-info">
+                  {listing.name}
+                  <br />
+                  <img src={listing.picture} />
+                </div>
+                <div>
+                  <table className="unit-table table-auto">
+                    <thead>
+                      <tr>
+                        <th align="left">Unit&nbsp;type</th>
+                        <th align="center">Average&nbsp;Sq.&nbsp;Ft</th>
+                        <th align="right">Range</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </td>
-              {/* <td align="left">Unit Type Here</td>
-              <td align="left">Avg sq fooage Here</td>
-              <td align="left">Range here</td> */}
-            </tr>
-          )).slice(firstListingIndex, lastListingIndex)
-          }
-        </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                      {unitMapCreator(listing.units).map(([unitType, stats]) => (
+                        <tr key={unitType}>
+                          <td align="left">{unitType}</td>
+                          <td align="center">~{(stats.avgSqFt).toFixed(0)} sqft</td>
+                          <td align="center">{stats.min} - {stats.max}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )).slice(firstListingIndex, lastListingIndex)
+            }
+          </div>
       </div>
   );
 }
