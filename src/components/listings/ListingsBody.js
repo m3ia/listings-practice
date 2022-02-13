@@ -55,7 +55,7 @@ function unitMapCreator(units) {
 
 function ListingsBody({ listingsData, firstListingIndex, lastListingIndex }) {
     return (
-      <div className="Listings-table container mx-auto flex">
+      <div className="Listings-container border border-sky-500">
           <div>
           <div className="listings-heading">
             <div>

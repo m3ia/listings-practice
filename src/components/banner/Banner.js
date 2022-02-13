@@ -66,7 +66,7 @@ const PaginationStation = ({ listingsPerPage, setListingsPerPage, currentPage, s
 
 function Banner({setSearchTerm, currentPage, numberOfPages, setCurrentPage, setListingsPerPage, listingsPerPage}) {
   return (
-    <div className="Banner-container">
+    <div className="Banner-container border border-orange-500">
       <div className="propertyNameFilter">
         <PropertyNameFilter setSearchTerm={setSearchTerm} />
       </div>
