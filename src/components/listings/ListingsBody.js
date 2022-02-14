@@ -25,10 +25,10 @@ function unitMapCreator(units) {
   const unitMap = new Map();
   const unitTypes = {
     studio: 'Studio',
-    oneBdrm: '1-bedroom',
-    twoBdrm: '2-bedroom',
-    threeBdrm: '3-bedroom',
-    fourBdrm: '4-bedroom'
+    oneBdrm: '1 bdr',
+    twoBdrm: '2 bdr',
+    threeBdrm: '3 bdr',
+    fourBdrm: '4 bdr'
   }
   // Loop over units 
   units.forEach( (unit) => {
@@ -84,10 +84,12 @@ function ListingsBody({ listingsData, firstListingIndex, lastListingIndex }) {
                       </tr>
                     </thead>
                     <tbody>
-                      {unitMapCreator(listing.units).map(([unitType, stats]) => (
+                      {unitMapCreator(listing.units)
+                        .sort((a, b) => a > b ? 1 : -1)
+                        .map(([unitType, stats]) => (
                         <tr key={unitType}>
                           <td align="left">{unitType}</td>
-                          <td align="center">~{(stats.avgSqFt).toFixed(0)} sqft</td>
+                          <td align="center">{(stats.avgSqFt).toFixed(0)} sqft</td>
                           <td align="center">{stats.min} - {stats.max}</td>
                         </tr>
                       ))}
