@@ -51,7 +51,11 @@ const PaginationStation = ({ listingsPerPage, setListingsPerPage, currentPage, s
                             Show {' '}
                             {[10, 20, 30].map((n) => (
                                 n !== listingsPerPage ? (
-                                    <a href ="#" onClick={() => setListingsPerPage(n)}>
+                                    <a 
+                                        key={n}
+                                        href ="#" 
+                                        onClick={() => 
+                                        setListingsPerPage(n)}>
                                         <u>{n} {' '}</u>
                                     </a>
                                 ) : `${n} ` 

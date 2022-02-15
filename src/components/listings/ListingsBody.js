@@ -3,25 +3,23 @@ import '../../App.css';
 /*
 Example format for the units Map: 
 {
-  oneBdrm:
+  1 bdr:
   { 
     min: 1,
     max: 10,
     sqFt: [356.50, 232352, 2323],
     avgSqFt: 23432,
-    amenities: ['fireplace', 'accessible bathroom']
   }
-  twoBedrm:
+  2 bdr:
   {
     min: 2,
     max: 10,
     sqFt: [500.50, 3522, 328],
     avgSqFt: 242.34,
-    amenities: ['internet']
   }
 }
 */
-function unitMapCreator(units) {
+export const unitMapCreator = (units) => {
   const unitMap = new Map();
   const unitTypes = {
     studio: 'Studio',
