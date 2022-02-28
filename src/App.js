@@ -23,7 +23,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   
   const listingsData = 
-  searchTerm == "" ? 
+  searchTerm === "" ? 
   listings.sort((a, b) => a.name > b.name ? 1: -1) : 
   listings.filter(
     ({name}) => name
@@ -31,7 +31,7 @@ function App() {
       .includes(searchTerm.toLowerCase()))
   .sort((a, b) => a.name > b.name ? 1: -1);
 
-  const { numberOfListings, numberOfPages, firstListingIndex, lastListingIndex } = getPaginationInfo(listingsData, listingsPerPage, currentPage);
+  const { numberOfPages, firstListingIndex, lastListingIndex } = getPaginationInfo(listingsData, listingsPerPage, currentPage);
   return (
     <div className="App">
       <Banner 

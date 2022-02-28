@@ -1,4 +1,3 @@
-import { ArrowCircleRightIcon } from '@heroicons/react/outline'
 import '../../App.css';
 
 // For Property Name Filter
@@ -54,8 +53,11 @@ const PaginationStation = ({ listingsPerPage, setListingsPerPage, currentPage, s
                                     <a 
                                         key={n}
                                         href ="#" 
-                                        onClick={() => 
-                                        setListingsPerPage(n)}>
+                                        onClick={() => {
+                                            setListingsPerPage(n);
+                                            setCurrentPage(1);
+                                        }
+                                            }>
                                         <u>{n} {' '}</u>
                                     </a>
                                 ) : `${n} ` 
