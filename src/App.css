@@ -79,3 +79,14 @@ th, td {
   margin: 5px;
   padding: 5px;
 }
+
+.amenities-dropdown {
+  width: 15rem;
+}
+
+.amenity-button {
+  padding: 2px;
+  margin: 2px;
+  max-width: 15px;
+  word-wrap: normal;
+}

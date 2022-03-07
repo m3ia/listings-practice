@@ -1,5 +1,31 @@
 import '../../App.css';
 
+// For Amenities Dropdown Filter
+
+const AmenitiesDropdown = () => {
+    return (
+        <div className="amenities-dropdown border-solid border-2 border-green-500">
+                <span className="amenity-button rounded-full-auto bg-green-500"> Hi there.  
+                    <button className="text-slate-50 font-bold"> x </button>
+                </span>
+                <span className="amenity-button rounded-full-auto bg-green-500">Hellloooo
+                    <button className="text-slate-50 font-bold"> x </button>
+                </span>
+                <span className="amenity-button rounded-full-auto bg-green-500">owie
+                    <button className="text-slate-50 font-bold"> x </button>
+                </span>
+                <span className="amenity-button rounded-full-auto bg-green-500">Hellloooo
+                    <button className="text-slate-50 font-bold"> x </button>
+                </span>
+                <span className="amenity-button rounded-full-auto bg-green-500">Hellloooo
+                    <button className="text-slate-50 font-bold"> x </button>
+                </span>
+                <span className="amenity-button rounded-full-auto bg-green-500">Hellloooo
+                    <button className="text-slate-50 font-bold"> x </button>
+                </span>
+        </div>
+    )
+}
 // For Property Name Filter
 const PropertyNameFilter = ({setSearchTerm}) => {
     return (
@@ -73,7 +99,10 @@ const PaginationStation = ({ listingsPerPage, setListingsPerPage, currentPage, s
 function Banner({setSearchTerm, currentPage, numberOfPages, setCurrentPage, setListingsPerPage, listingsPerPage}) {
   return (
     <div className="Banner-container border border-orange-500">
-      <div className="propertyNameFilter">
+      <div className="amenities-dropdown-filter">
+          <AmenitiesDropdown />
+      </div>
+      <div className="property-name-filter">
         <PropertyNameFilter setSearchTerm={setSearchTerm} />
       </div>
       <div className="pagination-station">
