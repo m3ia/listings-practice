@@ -6,22 +6,28 @@ const AmenitiesDropdown = () => {
     return (
         <div className="amenities-dropdown border-solid border-2 border-green-500">
                 <span className="amenity-button rounded-full-auto bg-green-500"> Hi there.  
-                    <button className="text-slate-50 font-bold"> x </button>
+                    <button className="amenities-x text-slate-50 font-bold"> x </button>
                 </span>
                 <span className="amenity-button rounded-full-auto bg-green-500">Hellloooo
-                    <button className="text-slate-50 font-bold"> x </button>
+                    <button className="amenities-x text-slate-50 font-bold"> x </button>
                 </span>
                 <span className="amenity-button rounded-full-auto bg-green-500">owie
-                    <button className="text-slate-50 font-bold"> x </button>
+                    <button className="amenities-x text-slate-50 font-bold"> x </button>
                 </span>
                 <span className="amenity-button rounded-full-auto bg-green-500">Hellloooo
-                    <button className="text-slate-50 font-bold"> x </button>
+                    <button className="amenities-x text-slate-50 font-bold"> x </button>
                 </span>
                 <span className="amenity-button rounded-full-auto bg-green-500">Hellloooo
-                    <button className="text-slate-50 font-bold"> x </button>
+                    <button className="amenities-x text-slate-50 font-bold"> x </button>
+                </span>
+                <span className="amenity-button rounded-full-auto bg-green-500"> Hi there.  
+                    <button className="amenities-x text-slate-50 font-bold"> x </button>
                 </span>
                 <span className="amenity-button rounded-full-auto bg-green-500">Hellloooo
-                    <button className="text-slate-50 font-bold"> x </button>
+                    <button className="amenities-x text-slate-50 font-bold"> x </button>
+                </span>
+                <span className="amenity-button rounded-full-auto bg-green-500">owie
+                    <button className="amenities-x text-slate-50 font-bold"> x </button>
                 </span>
         </div>
     )
