@@ -80,7 +80,11 @@ th, td {
   padding: 5px;
 }
 
-.amenities-dropdown {
+.amenities-dropdown-filter {
+  width: 15rem;
+}
+
+.selected-amenities {
   width: 15rem;
   word-wrap: break-word;
 }
@@ -94,4 +98,8 @@ th, td {
 .amenities-x {
   padding: 1px;
   margin: 1px;
+}
+
+.amenities-dropdown {
+  width: inherit;
 }
