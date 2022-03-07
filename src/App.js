@@ -32,7 +32,9 @@ function App() {
   .sort((a, b) => a.name > b.name ? 1: -1);
 
   // Amenities filter
-  // look for all selected amenities in the filter 
+  // look for all selected amenities in the filter
+    // Create Dropdown menu with the collection of all the amenities in an alphabetized set
+    // based on selection, create a new array: "selectedAmenities"
   // Return properties that match those amenities
   // listingsData.filter(listing => {
   //   if (searchTerm && !doesListingNameMatch(listing, searchTerm)) {

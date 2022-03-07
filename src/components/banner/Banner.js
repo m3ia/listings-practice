@@ -8,7 +8,7 @@ const PropertyNameFilter = ({setSearchTerm}) => {
             className=
             "placeholder:italic placeholder:text-slate-400 block bg-white w-fit border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
             type="text"
-            placeholder="Search"
+            placeholder="Search by property name"
             onChange={event => {setSearchTerm(event.target.value)}} 
             />
       </div>
