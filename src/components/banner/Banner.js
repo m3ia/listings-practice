@@ -1,8 +1,7 @@
 import '../../App.css';
 
 // For Amenities Dropdown Filter
-
-const AmenitiesDropdown = () => {
+const AmenitiesDropdown = ({allAmenitiesArr}) => {
     return (
         <div className="amenities-dropdown-filter">
             <div className="selected-amenities border-solid border-2 border-green-500">
@@ -32,14 +31,9 @@ const AmenitiesDropdown = () => {
                     </span>
             </div>
             <select multiple className="amenities-dropdown border-solid border-2 border-green-500" >
-                <option>Hiiiiiiii</option>
-                <option>Hiiiiiiii</option>
-                <option>Hiiiiiiii</option>
-                <option>Hiiiiiiii</option>
-                <option>Hiiiiiiii</option>
-                <option>Hiiiiiiii</option>
-                <option>Hiiiiiiii</option>
-                <option>Hiiiiiiii</option>
+                {allAmenitiesArr.map((amenity) => (
+                    <option key={amenity}>{amenity}</option>
+                ))}
             </select>
         </div>
     )
@@ -114,11 +108,11 @@ const PaginationStation = ({ listingsPerPage, setListingsPerPage, currentPage, s
     )
 }
 
-function Banner({setSearchTerm, currentPage, numberOfPages, setCurrentPage, setListingsPerPage, listingsPerPage}) {
+function Banner({setSearchTerm, currentPage, numberOfPages, setCurrentPage, setListingsPerPage, listingsPerPage, allAmenitiesArr}) {
   return (
     <div className="Banner-container border border-orange-500">
       <div className="amenities-dropdown-filter">
-          <AmenitiesDropdown />
+          <AmenitiesDropdown allAmenitiesArr={allAmenitiesArr} />
       </div>
       <div className="property-name-filter">
         <PropertyNameFilter setSearchTerm={setSearchTerm} />

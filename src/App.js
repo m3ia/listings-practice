@@ -31,6 +31,22 @@ function App() {
       .includes(searchTerm.toLowerCase()))
   .sort((a, b) => a.name > b.name ? 1: -1);
 
+  // An array of all Amenities, for Amenities Filter
+  const allAmenitiesSet = new Set([]);
+  for (let i=0; i < listingsData.length; i++) {
+    const listing = listingsData[i];
+    const units = listing.units;
+    for (let j=0; j < units.length; j++) {
+      const amenities = units[j].amenities;
+      for (let k=0; k < amenities.length; k++) {
+        const amenity = amenities[k];
+        allAmenitiesSet.add(amenity);
+      }
+    }
+  }
+  const allAmenitiesArr = Array.from(allAmenitiesSet); 
+
+
   // Amenities filter
   // look for all selected amenities in the filter
     // Create Dropdown menu with the collection of all the amenities in an alphabetized set
@@ -69,6 +85,7 @@ function App() {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         numberOfPages={numberOfPages}
+        allAmenitiesArr={allAmenitiesArr}
       />
       <ListingsBody
         listingsData={listingsData}
