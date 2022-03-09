@@ -4,7 +4,7 @@
 
 .App {
   padding-left: 200px;
-  padding-right:200px;
+  padding-right: 200px;
 }
 
 .listings-heading {
@@ -42,7 +42,7 @@
   display: flex;
   justify-content: space-between;
   align-content: space-around;
-  align-items:center;
+  align-items: center;
   padding: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -75,7 +75,8 @@
   display: inline-block;
 }
 
-th, td {
+th,
+td {
   margin: 5px;
   padding: 5px;
 }
