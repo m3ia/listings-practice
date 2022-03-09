@@ -47,6 +47,10 @@ function App() {
   }
   const allAmenitiesArr = Array.from(allAmenitiesSet); 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2363169835682435ff49ca89185d0699734dd13d
   // Amenities filter
   // look for all selected amenities in the filter
     // Create Dropdown menu with the collection of all the amenities in an alphabetized set
