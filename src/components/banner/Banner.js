@@ -4,6 +4,7 @@ import '../../App.css';
 const AmenitiesDropdown = ({allAmenitiesArr}) => {
     return (
         <div className="amenities-dropdown-filter">
+            {/*  Amenities Selection Box  */}
             <div className="selected-amenities border-solid border-2 border-green-500">
                     <span className="amenity-button rounded-full-auto bg-green-500"> Hi there.  
                         <button className="amenities-x text-slate-50 font-bold"> x </button>
@@ -30,6 +31,7 @@ const AmenitiesDropdown = ({allAmenitiesArr}) => {
                         <button className="amenities-x text-slate-50 font-bold"> x </button>
                     </span>
             </div>
+            {/* Dropdown multi-select list of all unique amenities */}
             <select multiple className="amenities-dropdown border-solid border-2 border-green-500" >
                 {allAmenitiesArr.map((amenity) => (
                     <option key={amenity}>{amenity}</option>
