@@ -29,6 +29,8 @@ function App() {
   // For Pagination
   const [listingsPerPage, setListingsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  // For amenities filter selection
+  const [selectedAmenities, setSelectedAmenities] = useState([]);
 
   const listingsData =
     searchTerm === ""
@@ -73,6 +75,8 @@ function App() {
         setCurrentPage={setCurrentPage}
         numberOfPages={numberOfPages}
         allAmenitiesArr={allAmenitiesArr}
+        selectedAmenities={selectedAmenities}
+        setSelectedAmenities={setSelectedAmenities}
       />
       <ListingsBody
         listingsData={listingsData}

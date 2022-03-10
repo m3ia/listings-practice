@@ -1,45 +1,57 @@
 import "../../App.css";
 
 // For Amenities Dropdown Filter
-const AmenitiesDropdown = ({ allAmenitiesArr }) => {
+const AmenitiesDropdown = ({
+  allAmenitiesArr,
+  selectedAmenities,
+  setSelectedAmenities,
+}) => {
+  console.log("selectedAmenities: " + selectedAmenities);
+  console.log("3rd item: " + selectedAmenities[2]);
+  function updateSelectedAmenities(amenity) {
+    // If selectedAmenities is empty, set it to amenity
+    if (selectedAmenities.length === 0) {
+      setSelectedAmenities((prev) => (prev = [amenity]));
+    } else if (
+      selectedAmenities.length > 0 &&
+      selectedAmenities.includes(amenity)
+    ) {
+      // if selectedAmenities already has the selected item, remove it from the array
+      setSelectedAmenities((prev) => {
+        let newPrev = [];
+        for (let i = 0; i < prev.length; i++) {
+          if (prev[i] === amenity) {
+            continue;
+          }
+          newPrev.push(prev[i]);
+        }
+        return newPrev;
+      });
+    } else if (
+      selectedAmenities.length > 0 &&
+      !selectedAmenities.includes(amenity)
+    ) {
+      // if selectedAmenities has at least 1 item, add amenity
+      setSelectedAmenities((prev) => [...prev, amenity]);
+    }
+  }
   return (
     <div className="amenities-dropdown-filter">
       {/*  Amenities Selection Box  */}
       <div className="selected-amenities border-solid border-2 border-green-500">
-        <span className="amenity-button rounded-full-auto bg-green-500">
-          {" "}
-          Hi there.
-          <button className="amenities-x text-slate-50 font-bold"> x </button>
-        </span>
-        <span className="amenity-button rounded-full-auto bg-green-500">
-          Hellloooo
-          <button className="amenities-x text-slate-50 font-bold"> x </button>
-        </span>
-        <span className="amenity-button rounded-full-auto bg-green-500">
-          owie
-          <button className="amenities-x text-slate-50 font-bold"> x </button>
-        </span>
-        <span className="amenity-button rounded-full-auto bg-green-500">
-          Hellloooo
-          <button className="amenities-x text-slate-50 font-bold"> x </button>
-        </span>
-        <span className="amenity-button rounded-full-auto bg-green-500">
-          Hellloooo
-          <button className="amenities-x text-slate-50 font-bold"> x </button>
-        </span>
-        <span className="amenity-button rounded-full-auto bg-green-500">
-          {" "}
-          Hi there.
-          <button className="amenities-x text-slate-50 font-bold"> x </button>
-        </span>
-        <span className="amenity-button rounded-full-auto bg-green-500">
-          Hellloooo
-          <button className="amenities-x text-slate-50 font-bold"> x </button>
-        </span>
-        <span className="amenity-button rounded-full-auto bg-green-500">
-          owie
-          <button className="amenities-x text-slate-50 font-bold"> x </button>
-        </span>
+        {selectedAmenities.length > 0 &&
+          selectedAmenities.map((selectedAmenity) => (
+            <span
+              key={selectedAmenity}
+              className="amenity-button rounded-full-auto bg-green-500"
+            >
+              {selectedAmenity}
+              <button className="amenities-x text-slate-50 font-bold">
+                {" "}
+                x{" "}
+              </button>
+            </span>
+          ))}
       </div>
       {/* Dropdown multi-select list of all unique amenities */}
       <select
@@ -47,7 +59,14 @@ const AmenitiesDropdown = ({ allAmenitiesArr }) => {
         className="amenities-dropdown border-solid border-2 border-green-500"
       >
         {allAmenitiesArr.map((amenity) => (
-          <option key={amenity}>{amenity}</option>
+          <option
+            key={amenity}
+            onClick={(event) => {
+              updateSelectedAmenities(event.target.value);
+            }}
+          >
+            {amenity}
+          </option>
         ))}
       </select>
     </div>
@@ -140,11 +159,17 @@ function Banner({
   setListingsPerPage,
   listingsPerPage,
   allAmenitiesArr,
+  selectedAmenities,
+  setSelectedAmenities,
 }) {
   return (
     <div className="Banner-container border border-orange-500">
       <div className="amenities-dropdown-filter">
-        <AmenitiesDropdown allAmenitiesArr={allAmenitiesArr} />
+        <AmenitiesDropdown
+          allAmenitiesArr={allAmenitiesArr}
+          selectedAmenities={selectedAmenities}
+          setSelectedAmenities={setSelectedAmenities}
+        />
       </div>
       <div className="property-name-filter">
         <PropertyNameFilter setSearchTerm={setSearchTerm} />
