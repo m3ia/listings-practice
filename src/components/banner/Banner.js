@@ -58,16 +58,31 @@ const AmenitiesDropdown = ({
         multiple
         className="amenities-dropdown border-solid border-2 border-green-500"
       >
-        {allAmenitiesArr.map((amenity) => (
-          <option
-            key={amenity}
-            onClick={(event) => {
-              updateSelectedAmenities(event.target.value);
-            }}
-          >
-            {amenity}
-          </option>
-        ))}
+        {/* {
+            allAmenitiesArr.filter((amenity) => !selectedAmenities.find(amenity)).map((amenity) => (
+                <option
+                    key={amenity}
+                    onClick={(event) => {
+                        updateSelectedAmenities(event.target.value);
+                    }}
+                >
+                {amenity}
+                </option>
+            ))
+        } */}
+
+        {allAmenitiesArr
+          .filter((amenity) => !selectedAmenities.includes(amenity))
+          .map((amenity) => (
+            <option
+              key={amenity}
+              onClick={(event) => {
+                updateSelectedAmenities(event.target.value);
+              }}
+            >
+              {amenity}
+            </option>
+          ))}
       </select>
     </div>
   );
