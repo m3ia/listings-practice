@@ -6,9 +6,7 @@ const AmenitiesDropdown = ({
   selectedAmenities,
   setSelectedAmenities,
 }) => {
-  console.log("selectedAmenities: " + selectedAmenities);
-  console.log("3rd item: " + selectedAmenities[2]);
-  function updateSelectedAmenities(amenity) {
+  function addSelectedAmenities(amenity) {
     // If selectedAmenities is empty, set it to amenity
     if (selectedAmenities.length === 0) {
       setSelectedAmenities((prev) => (prev = [amenity]));
@@ -35,6 +33,21 @@ const AmenitiesDropdown = ({
       setSelectedAmenities((prev) => [...prev, amenity]);
     }
   }
+
+  // Function that deselects an amenity when user clicks "x" for amenity
+  function deselectAmenity(selectedAmenity) {
+    setSelectedAmenities((prev) => {
+      let newPrev = [];
+      for (let i = 0; i < prev.length; i++) {
+        if (prev[i] === selectedAmenity) {
+          continue;
+        } else {
+          newPrev.push(prev[i]);
+        }
+      }
+      return newPrev;
+    });
+  }
   return (
     <div className="amenities-dropdown-filter">
       {/*  Amenities Selection Box  */}
@@ -46,9 +59,13 @@ const AmenitiesDropdown = ({
               className="amenity-button rounded-full-auto bg-green-500"
             >
               {selectedAmenity}
-              <button className="amenities-x text-slate-50 font-bold">
+              <button
+                className="amenities-x text-neutral-50 font-bold"
+                key={selectedAmenity}
+                onClick={() => deselectAmenity(selectedAmenity)}
+              >
                 {" "}
-                x{" "}
+                ×{" "}
               </button>
             </span>
           ))}
@@ -58,26 +75,13 @@ const AmenitiesDropdown = ({
         multiple
         className="amenities-dropdown border-solid border-2 border-green-500"
       >
-        {/* {
-            allAmenitiesArr.filter((amenity) => !selectedAmenities.find(amenity)).map((amenity) => (
-                <option
-                    key={amenity}
-                    onClick={(event) => {
-                        updateSelectedAmenities(event.target.value);
-                    }}
-                >
-                {amenity}
-                </option>
-            ))
-        } */}
-
         {allAmenitiesArr
           .filter((amenity) => !selectedAmenities.includes(amenity))
           .map((amenity) => (
             <option
               key={amenity}
               onClick={(event) => {
-                updateSelectedAmenities(event.target.value);
+                addSelectedAmenities(event.target.value);
               }}
             >
               {amenity}
