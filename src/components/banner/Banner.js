@@ -52,6 +52,11 @@ const AmenitiesDropdown = ({
     <div className="amenities-dropdown-filter">
       {/*  Amenities Selection Box  */}
       <div className="selected-amenities border-solid border-2 border-green-500">
+        {selectedAmenities.length === 0 && (
+          <span className="mx-3 text-sm italic text-slate-400 bg-white w-fit">
+            Filter by amenities
+          </span>
+        )}
         {selectedAmenities.length > 0 &&
           selectedAmenities.map((selectedAmenity) => (
             <span
