@@ -23,27 +23,11 @@ export const getPaginationInfo = (
   };
 };
 
-function App() {
-  // For Property Name search filter
-  const [searchTerm, setSearchTerm] = useState("");
-  // For Pagination
-  const [listingsPerPage, setListingsPerPage] = useState(10);
-  const [currentPage, setCurrentPage] = useState(1);
-  // For amenities filter selection
-  const [selectedAmenities, setSelectedAmenities] = useState([]);
-  let filteredListings = [...listings];
-
-  // Filter by property name
-  if (searchTerm.length > 0) {
-    filteredListings = filteredListings.filter(({ name }) =>
-      name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }
-
-  // Filter listing units by amenities
+// Filter listing units by amenities
+function filterListingsByAmenities(listings, selectedAmenities) {
   if (selectedAmenities.length > 0) {
     // Filter listings based on units
-    filteredListings = filteredListings
+    return listings
       .map((listing) => {
         // Creates a shallow copy for listing to avoid mutating unit property on original object
         let newListing = { ...listing };
@@ -64,7 +48,32 @@ function App() {
         // Filter out any listings with 0 units that match the criteria
       })
       .filter(({ units }) => units.length > 0);
+  } else {
+    return listings;
   }
+}
+
+function App() {
+  // For Property Name search filter
+  const [searchTerm, setSearchTerm] = useState("");
+  // For Pagination
+  const [listingsPerPage, setListingsPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  // For amenities filter selection
+  const [selectedAmenities, setSelectedAmenities] = useState([]);
+  let filteredListings = [...listings];
+
+  // Filter by property name
+  if (searchTerm.length > 0) {
+    filteredListings = filteredListings.filter(({ name }) =>
+      name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+
+  filteredListings = filterListingsByAmenities(
+    filteredListings,
+    selectedAmenities
+  );
 
   // Amenities Dropdown Filter
   // An array of all Amenities, for Amenities Filter
