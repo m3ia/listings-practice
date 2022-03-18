@@ -98,6 +98,9 @@ const AmenitiesDropdown = ({
 };
 // For Property Name Filter
 const PropertyNameFilter = ({ setSearchTerm }) => {
+  function searchByProperty(term) {
+    setSearchTerm(term);
+  }
   return (
     <div>
       <input
@@ -105,7 +108,7 @@ const PropertyNameFilter = ({ setSearchTerm }) => {
         type="text"
         placeholder="Search by property name"
         onChange={(event) => {
-          setSearchTerm(event.target.value);
+          searchByProperty(event.target.value);
         }}
       />
     </div>

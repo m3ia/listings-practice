@@ -31,24 +31,47 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   // For amenities filter selection
   const [selectedAmenities, setSelectedAmenities] = useState([]);
+  let filteredListings = [...listings];
 
-  const listingsData =
-    searchTerm === ""
-      ? listings.sort((a, b) => (a.name > b.name ? 1 : -1))
-      : listings
-          .filter(({ name }) =>
-            name.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-          .sort((a, b) => (a.name > b.name ? 1 : -1));
+  // Filter by property name
+  if (searchTerm.length > 0) {
+    filteredListings = filteredListings.filter(({ name }) =>
+      name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+
+  // Filter listing units by amenities
+  if (selectedAmenities.length > 0) {
+    // Filter listings based on units
+    filteredListings = filteredListings
+      .map((listing) => {
+        // For each unit, check if amenities contains each selected amenity
+        listing.units = listing.units.filter((unit) => {
+          let amenities = unit.amenities;
+          for (let k = 0; k < selectedAmenities.length; k++) {
+            // If one unit does not contain one of the selected amenities, filter out the UNIT by returning "false"
+            if (!amenities.includes(selectedAmenities[k])) {
+              return false;
+            }
+          }
+          // Return true by default
+          return true;
+        });
+        // Returns the LISTING (whether or not there are units that match the criteria)
+        return listing;
+        // Filter out any listings with 0 units that match the criteria
+      })
+      .filter(({ units }) => units.length > 0);
+  }
 
   // Amenities Dropdown Filter
   // An array of all Amenities, for Amenities Filter
   // Creates a Set of all unique, possible amenities
   const allAmenitiesSet = new Set([]);
   // Loops through all listings to access units...
-  for (let i = 0; i < listingsData.length; i++) {
+  for (let i = 0; i < listings.length; i++) {
     // Loops through all units to access amenities...
-    const listing = listingsData[i];
+    const listing = listings[i];
     const units = listing.units;
     for (let j = 0; j < units.length; j++) {
       const amenities = units[j].amenities;
@@ -63,11 +86,11 @@ function App() {
   const allAmenitiesArr = Array.from(allAmenitiesSet);
 
   const { numberOfPages, firstListingIndex, lastListingIndex } =
-    getPaginationInfo(listingsData, listingsPerPage, currentPage);
+    getPaginationInfo(filteredListings, listingsPerPage, currentPage);
   return (
     <div className="App">
       <Banner
-        listingsData={listingsData}
+        listingsData={filteredListings}
         setSearchTerm={setSearchTerm}
         listingsPerPage={listingsPerPage}
         setListingsPerPage={setListingsPerPage}
@@ -79,7 +102,7 @@ function App() {
         setSelectedAmenities={setSelectedAmenities}
       />
       <ListingsBody
-        listingsData={listingsData}
+        listingsData={filteredListings}
         firstListingIndex={firstListingIndex}
         lastListingIndex={lastListingIndex}
       />

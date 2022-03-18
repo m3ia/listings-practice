@@ -60,6 +60,7 @@ function ListingsBody({ listingsData, firstListingIndex, lastListingIndex }) {
           <div>Unit Info</div>
         </div>
         {listingsData
+          .sort((a, b) => (a.name > b.name ? 1 : -1))
           .map((listing) => (
             <div className="listing-info" key={listing.id}>
               <div className="property-info">
