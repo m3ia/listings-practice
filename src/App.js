@@ -45,8 +45,10 @@ function App() {
     // Filter listings based on units
     filteredListings = filteredListings
       .map((listing) => {
+        // Creates a shallow copy for listing to avoid mutating unit property on original object
+        let newListing = { ...listing };
         // For each unit, check if amenities contains each selected amenity
-        listing.units = listing.units.filter((unit) => {
+        newListing.units = newListing.units.filter((unit) => {
           let amenities = unit.amenities;
           for (let k = 0; k < selectedAmenities.length; k++) {
             // If one unit does not contain one of the selected amenities, filter out the UNIT by returning "false"
@@ -58,7 +60,7 @@ function App() {
           return true;
         });
         // Returns the LISTING (whether or not there are units that match the criteria)
-        return listing;
+        return newListing;
         // Filter out any listings with 0 units that match the criteria
       })
       .filter(({ units }) => units.length > 0);
