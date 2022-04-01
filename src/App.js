@@ -53,20 +53,53 @@ function filterListingsByAmenities(listings, selectedAmenities) {
   }
 }
 
+// Filter By Occupancy Range
+function filterListingsByOccupancyRange(listings, minFilter, maxFilter) {
+  // Check for just min input && no max
+  if (minFilter > 0 || maxFilter > 0) {
+    return listings
+      .map((listing) => {
+        // Create shallow copy of listing
+        let newListing = { ...listing };
+        //Create shallow copy of filtered units
+        newListing.units = newListing.units.filter((unit) => {
+          let minRange = unit.minOccupancy;
+          let maxRange = unit.maxOccupancy;
+          // Checks for min input && no max
+          if (minFilter > 0 && !maxFilter) {
+            return minRange >= minFilter;
+            // Checks for max input && no min
+          } else if (maxFilter > 0 && !minFilter) {
+            return maxRange <= maxFilter;
+            // Checks for both inputs
+          } else if (minFilter > 0 && maxFilter > 0) {
+            return minRange >= minFilter && maxRange <= maxFilter;
+          }
+        });
+        return newListing;
+      })
+      .filter(({ units }) => units.length > 0);
+  } else {
+    return listings;
+  }
+}
 function App() {
   // For Property Name search filter
-  const [searchTerm, setSearchTerm] = useState("");
+  const [inputName, setInputName] = useState("");
   // For Pagination
   const [listingsPerPage, setListingsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   // For amenities filter selection
   const [selectedAmenities, setSelectedAmenities] = useState([]);
+  // For occupancy range filters
+  const [minFilter, setMinFilter] = useState(0);
+  const [maxFilter, setMaxFilter] = useState(0);
   let filteredListings = [...listings];
 
-  // Filter by property name
-  if (searchTerm.length > 0) {
+  // Filters
+  if (inputName.length > 0) {
     filteredListings = filteredListings.filter(({ name }) =>
-      name.toLowerCase().includes(searchTerm.toLowerCase())
+      name.toLowerCase().includes(inputName.toLowerCase())
     );
   }
 
@@ -75,6 +108,11 @@ function App() {
     selectedAmenities
   );
 
+  filteredListings = filterListingsByOccupancyRange(
+    filteredListings,
+    minFilter,
+    maxFilter
+  );
   // Amenities Dropdown Filter
   // An array of all Amenities, for Amenities Filter
   // Creates a Set of all unique, possible amenities
@@ -102,7 +140,7 @@ function App() {
     <div className="App">
       <Banner
         listingsData={filteredListings}
-        setSearchTerm={setSearchTerm}
+        setInputName={setInputName}
         listingsPerPage={listingsPerPage}
         setListingsPerPage={setListingsPerPage}
         currentPage={currentPage}
@@ -111,6 +149,10 @@ function App() {
         allAmenitiesArr={allAmenitiesArr}
         selectedAmenities={selectedAmenities}
         setSelectedAmenities={setSelectedAmenities}
+        minFilter={minFilter}
+        maxFilter={maxFilter}
+        setMinFilter={setMinFilter}
+        setMaxFilter={setMaxFilter}
       />
       <ListingsBody
         listingsData={filteredListings}

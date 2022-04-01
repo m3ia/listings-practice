@@ -1,5 +1,35 @@
 import "../../App.css";
 
+const OccupancyRangeFilter = ({
+  minFilter,
+  maxFilter,
+  setMinFilter,
+  setMaxFilter,
+}) => {
+  return (
+    <div className="amenities-dropdown-filter">
+      Filter by occupancy range:
+      <br />
+      Min:
+      <input
+        className="min-filter-input px-2 border"
+        onChange={(event) => setMinFilter(event.target.value)}
+        type="number"
+        value={minFilter}
+        min="0"
+      />
+      <br />
+      Max:
+      <input
+        className="max-filter-input px-2 border"
+        onChange={(event) => setMaxFilter(event.target.value)}
+        type="number"
+        value={maxFilter}
+        min="0"
+      />
+    </div>
+  );
+};
 // For Amenities Dropdown Filter
 const AmenitiesDropdown = ({
   allAmenitiesArr,
@@ -97,10 +127,11 @@ const AmenitiesDropdown = ({
   );
 };
 // For Property Name Filter
-const PropertyNameFilter = ({ setSearchTerm }) => {
-  function searchByProperty(term) {
-    setSearchTerm(term);
+const PropertyNameFilter = ({ setInputName }) => {
+  function searchByProperty(propertyName) {
+    setInputName(propertyName);
   }
+
   return (
     <div>
       <input
@@ -179,7 +210,7 @@ const PaginationStation = ({
 };
 
 function Banner({
-  setSearchTerm,
+  setInputName,
   currentPage,
   numberOfPages,
   setCurrentPage,
@@ -188,9 +219,13 @@ function Banner({
   allAmenitiesArr,
   selectedAmenities,
   setSelectedAmenities,
+  minFilter,
+  maxFilter,
+  setMinFilter,
+  setMaxFilter,
 }) {
   return (
-    <div className="Banner-container border border-orange-500">
+    <div className="banner-container border border-orange-500">
       <div className="amenities-dropdown-filter">
         <AmenitiesDropdown
           allAmenitiesArr={allAmenitiesArr}
@@ -199,7 +234,15 @@ function Banner({
         />
       </div>
       <div className="property-name-filter">
-        <PropertyNameFilter setSearchTerm={setSearchTerm} />
+        <PropertyNameFilter setInputName={setInputName} />
+      </div>
+      <div className="occupancy-range-filter border border-pink-400">
+        <OccupancyRangeFilter
+          minFilter={minFilter}
+          maxFilter={maxFilter}
+          setMinFilter={setMinFilter}
+          setMaxFilter={setMaxFilter}
+        />
       </div>
       <div className="pagination-station">
         <PaginationStation
