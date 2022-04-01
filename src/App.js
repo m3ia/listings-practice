@@ -67,15 +67,13 @@ function filterListingsByOccupancyRange(listings, minFilter, maxFilter) {
           let maxRange = unit.maxOccupancy;
           // Checks for min input && no max
           if (minFilter > 0 && !maxFilter) {
-            return minRange >= minFilter ? true : false;
+            return minRange >= minFilter;
             // Checks for max input && no min
           } else if (maxFilter > 0 && !minFilter) {
-            return maxRange <= maxFilter ? true : false;
+            return maxRange <= maxFilter;
             // Checks for both inputs
           } else if (minFilter > 0 && maxFilter > 0) {
-            return minRange >= minFilter && maxRange <= maxFilter
-              ? true
-              : false;
+            return minRange >= minFilter && maxRange <= maxFilter;
           }
         });
         return newListing;
@@ -98,7 +96,7 @@ function App() {
   const [maxFilter, setMaxFilter] = useState(0);
   let filteredListings = [...listings];
 
-  // Filter by property name
+  // Filters
   if (inputName.length > 0) {
     filteredListings = filteredListings.filter(({ name }) =>
       name.toLowerCase().includes(inputName.toLowerCase())

@@ -12,18 +12,20 @@ const OccupancyRangeFilter = ({
       <br />
       Min:
       <input
-        className="min-filter-input"
+        className="min-filter-input px-2 border"
         onChange={(event) => setMinFilter(event.target.value)}
         type="number"
         value={minFilter}
+        min="0"
       />
       <br />
       Max:
       <input
-        className="max-filter-input"
+        className="max-filter-input px-2 border"
         onChange={(event) => setMaxFilter(event.target.value)}
         type="number"
         value={maxFilter}
+        min="0"
       />
     </div>
   );
@@ -223,7 +225,7 @@ function Banner({
   setMaxFilter,
 }) {
   return (
-    <div className="Banner-container border border-orange-500">
+    <div className="banner-container border border-orange-500">
       <div className="amenities-dropdown-filter">
         <AmenitiesDropdown
           allAmenitiesArr={allAmenitiesArr}
@@ -234,12 +236,14 @@ function Banner({
       <div className="property-name-filter">
         <PropertyNameFilter setInputName={setInputName} />
       </div>
-      <OccupancyRangeFilter
-        minFilter={minFilter}
-        maxFilter={maxFilter}
-        setMinFilter={setMinFilter}
-        setMaxFilter={setMaxFilter}
-      />
+      <div className="occupancy-range-filter border border-pink-400">
+        <OccupancyRangeFilter
+          minFilter={minFilter}
+          maxFilter={maxFilter}
+          setMinFilter={setMinFilter}
+          setMaxFilter={setMaxFilter}
+        />
+      </div>
       <div className="pagination-station">
         <PaginationStation
           currentPage={currentPage}
