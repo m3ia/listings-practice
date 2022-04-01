@@ -87,7 +87,7 @@ function filterListingsByOccupancyRange(listings, minFilter, maxFilter) {
 }
 function App() {
   // For Property Name search filter
-  const [searchTerm, setSearchTerm] = useState("");
+  const [inputName, setInputName] = useState("");
   // For Pagination
   const [listingsPerPage, setListingsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
@@ -98,11 +98,10 @@ function App() {
   const [maxFilter, setMaxFilter] = useState(0);
   let filteredListings = [...listings];
 
-  // TODO: Rename searchTerm to inputName
   // Filter by property name
-  if (searchTerm.length > 0) {
+  if (inputName.length > 0) {
     filteredListings = filteredListings.filter(({ name }) =>
-      name.toLowerCase().includes(searchTerm.toLowerCase())
+      name.toLowerCase().includes(inputName.toLowerCase())
     );
   }
 
@@ -143,7 +142,7 @@ function App() {
     <div className="App">
       <Banner
         listingsData={filteredListings}
-        setSearchTerm={setSearchTerm}
+        setInputName={setInputName}
         listingsPerPage={listingsPerPage}
         setListingsPerPage={setListingsPerPage}
         currentPage={currentPage}

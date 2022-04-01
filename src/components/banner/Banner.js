@@ -125,9 +125,9 @@ const AmenitiesDropdown = ({
   );
 };
 // For Property Name Filter
-const PropertyNameFilter = ({ setSearchTerm }) => {
-  function searchByProperty(term) {
-    setSearchTerm(term);
+const PropertyNameFilter = ({ setInputName }) => {
+  function searchByProperty(propertyName) {
+    setInputName(propertyName);
   }
 
   return (
@@ -208,7 +208,7 @@ const PaginationStation = ({
 };
 
 function Banner({
-  setSearchTerm,
+  setInputName,
   currentPage,
   numberOfPages,
   setCurrentPage,
@@ -232,7 +232,7 @@ function Banner({
         />
       </div>
       <div className="property-name-filter">
-        <PropertyNameFilter setSearchTerm={setSearchTerm} />
+        <PropertyNameFilter setInputName={setInputName} />
       </div>
       <OccupancyRangeFilter
         minFilter={minFilter}
