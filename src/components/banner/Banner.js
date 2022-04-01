@@ -1,5 +1,33 @@
 import "../../App.css";
 
+const OccupancyRangeFilter = ({
+  minFilter,
+  maxFilter,
+  setMinFilter,
+  setMaxFilter,
+}) => {
+  return (
+    <div className="amenities-dropdown-filter">
+      Filter by occupancy range:
+      <br />
+      Min:
+      <input
+        className="min-filter-input"
+        onChange={(event) => setMinFilter(event.target.value)}
+        type="number"
+        value={minFilter}
+      />
+      <br />
+      Max:
+      <input
+        className="max-filter-input"
+        onChange={(event) => setMaxFilter(event.target.value)}
+        type="number"
+        value={maxFilter}
+      />
+    </div>
+  );
+};
 // For Amenities Dropdown Filter
 const AmenitiesDropdown = ({
   allAmenitiesArr,
@@ -101,6 +129,7 @@ const PropertyNameFilter = ({ setSearchTerm }) => {
   function searchByProperty(term) {
     setSearchTerm(term);
   }
+
   return (
     <div>
       <input
@@ -188,6 +217,10 @@ function Banner({
   allAmenitiesArr,
   selectedAmenities,
   setSelectedAmenities,
+  minFilter,
+  maxFilter,
+  setMinFilter,
+  setMaxFilter,
 }) {
   return (
     <div className="Banner-container border border-orange-500">
@@ -201,6 +234,12 @@ function Banner({
       <div className="property-name-filter">
         <PropertyNameFilter setSearchTerm={setSearchTerm} />
       </div>
+      <OccupancyRangeFilter
+        minFilter={minFilter}
+        maxFilter={maxFilter}
+        setMinFilter={setMinFilter}
+        setMaxFilter={setMaxFilter}
+      />
       <div className="pagination-station">
         <PaginationStation
           currentPage={currentPage}
