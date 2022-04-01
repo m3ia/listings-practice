@@ -17,5 +17,5 @@ The goals are, in decreasing level of priority:
 - [x] Create filter input for property name text
 - [X] Create [dropdown filter](https://www.w3schools.com/howto/howto_js_filter_dropdown.asp) for unit amenities
 - [ ] Create 2 text input filters on a minimum and maximum occupancy range
-- [ ] paginate listings
-- [ ] Style
+- [x] paginate listings
+- [x] Style
