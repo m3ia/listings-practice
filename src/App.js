@@ -56,7 +56,7 @@ function filterListingsByAmenities(listings, selectedAmenities) {
 // Filter By Occupancy Range
 function filterListingsByOccupancyRange(listings, minFilter, maxFilter) {
   // Check for just min input && no max
-  if (!minFilter || !maxFilter) {
+  if (minFilter > 0 || maxFilter > 0) {
     return listings
       .map((listing) => {
         // Create shallow copy of listing
@@ -66,14 +66,16 @@ function filterListingsByOccupancyRange(listings, minFilter, maxFilter) {
           let minRange = unit.minOccupancy;
           let maxRange = unit.maxOccupancy;
           // Checks for min input && no max
-          if (minFilter && !maxFilter) {
-            return minRange < minFilter ? false : true;
+          if (minFilter > 0 && !maxFilter) {
+            return minRange >= minFilter ? true : false;
             // Checks for max input && no min
-          } else if (maxFilter && !minFilter) {
-            return maxRange > maxFilter ? false : true;
+          } else if (maxFilter > 0 && !minFilter) {
+            return maxRange <= maxFilter ? true : false;
             // Checks for both inputs
-          } else if (minFilter && maxFilter) {
-            return minRange < minFilter || maxRange > maxFilter ? false : true;
+          } else if (minFilter > 0 && maxFilter > 0) {
+            return minRange >= minFilter && maxRange <= maxFilter
+              ? true
+              : false;
           }
         });
         return newListing;
