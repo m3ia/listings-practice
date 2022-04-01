@@ -16,6 +16,6 @@ The goals are, in decreasing level of priority:
 - [x] Display that data in a table associated with the property image
 - [x] Create filter input for property name text
 - [X] Create [dropdown filter](https://www.w3schools.com/howto/howto_js_filter_dropdown.asp) for unit amenities
-- [ ] Create 2 text input filters on a minimum and maximum occupancy range
+- [x] Create 2 text input filters on a minimum and maximum occupancy range
 - [x] paginate listings
 - [x] Style
