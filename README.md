@@ -19,3 +19,5 @@ The goals are, in decreasing level of priority:
 - [x] Create 2 text input filters on a minimum and maximum occupancy range
 - [x] paginate listings
 - [x] Style
+
+![Apr-02-2022 20-18-32](https://user-images.githubusercontent.com/38749469/161409829-a406de7d-7af8-4792-a507-a83a69b5433a.gif)
