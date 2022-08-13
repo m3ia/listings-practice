@@ -897,7 +897,7 @@ export const listings = [
   {
     id: "4dea1d79-646e-4e7d-b42a-a8bd039ef88b",
     name: "Utarian",
-    picture: "http://place-hold.it/400x300/de90e6/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "studio",
@@ -1381,7 +1381,7 @@ export const listings = [
   {
     id: "f943d82e-84c5-4f7e-8891-970ad1b498bf",
     name: "Quantalia",
-    picture: "http://place-hold.it/400x300/ebdc6a/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "twoBdrm",
@@ -1810,7 +1810,7 @@ export const listings = [
   {
     id: "011598e9-3751-4472-9225-fcdcd8983311",
     name: "Hydrocom",
-    picture: "http://place-hold.it/400x300/ebdc6a/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "twoBdrm",
@@ -2519,7 +2519,7 @@ export const listings = [
   {
     id: "45e41fff-fb61-498c-a701-5015cb81b20b",
     name: "Tropoli",
-    picture: "http://place-hold.it/400x300/fa997c/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "fourBdrm",
@@ -3319,7 +3319,7 @@ export const listings = [
   {
     id: "c83242d5-5fa5-47c7-b81d-5076d490068b",
     name: "Tribalog",
-    picture: "http://place-hold.it/400x300/de90e6/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "fourBdrm",
@@ -4339,7 +4339,7 @@ export const listings = [
   {
     id: "c2e03dfc-cb5e-4580-91c7-a13b0baee5a2",
     name: "Tetak",
-    picture: "http://place-hold.it/400x300/a1dce9/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "fourBdrm",
@@ -5218,7 +5218,7 @@ export const listings = [
   {
     id: "fe6769ff-953f-4a43-9ea5-50e36cbdc888",
     name: "Playce",
-    picture: "http://place-hold.it/400x300/ebdc6a/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "studio",
@@ -6082,7 +6082,7 @@ export const listings = [
   {
     id: "d9ae8202-b0f2-459e-b03f-edf730f6b6b0",
     name: "Exoplode",
-    picture: "http://place-hold.it/400x300/a1dce9/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "twoBdrm",
@@ -6991,7 +6991,7 @@ export const listings = [
   {
     id: "e56b94ff-c563-46c8-99f7-ea0919eda447",
     name: "Aquacine",
-    picture: "http://place-hold.it/400x300/de90e6/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "fourBdrm",
@@ -7448,7 +7448,7 @@ export const listings = [
   {
     id: "338ac346-de08-45bc-9d4a-fdd6c937bf6e",
     name: "Manglo",
-    picture: "http://place-hold.it/400x300/c2f0bb/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "studio",
@@ -8406,7 +8406,7 @@ export const listings = [
   {
     id: "35c541ac-db49-4b4a-8c79-fcb20d601801",
     name: "Combot",
-    picture: "http://place-hold.it/400x300/fa997c/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "oneBdrm",
@@ -8724,7 +8724,7 @@ export const listings = [
   {
     id: "364d59e8-19e2-4ed1-9e2b-805986ef0e43",
     name: "Multron",
-    picture: "http://place-hold.it/400x300/c2f0bb/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "oneBdrm",
@@ -9596,7 +9596,7 @@ export const listings = [
   {
     id: "becc9225-f002-493f-805b-ba5ce54795df",
     name: "Shopabout",
-    picture: "http://place-hold.it/400x300/ebdc6a/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "studio",
@@ -10548,7 +10548,7 @@ export const listings = [
   {
     id: "ac522a91-322b-4333-a924-ba758edbc3e1",
     name: "Gorganic",
-    picture: "http://place-hold.it/400x300/ebdc6a/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "studio",
@@ -10956,7 +10956,7 @@ export const listings = [
   {
     id: "293a5df9-ae0b-40da-93c0-8fd4468930cc",
     name: "Extragene",
-    picture: "http://place-hold.it/400x300/c2f0bb/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "studio",
@@ -11321,7 +11321,7 @@ export const listings = [
   {
     id: "589bb126-1a77-41f8-858f-c3d2645034b6",
     name: "Valpreal",
-    picture: "http://place-hold.it/400x300/c2f0bb/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "fourBdrm",
@@ -11904,7 +11904,7 @@ export const listings = [
   {
     id: "0fa1f6d7-c9ba-4fff-9ce7-270fe52a4aea",
     name: "Acumentor",
-    picture: "http://place-hold.it/400x300/ebdc6a/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "threeBdrm",
@@ -11992,7 +11992,7 @@ export const listings = [
   {
     id: "dd8b6393-f3e8-476a-aa25-3e260767f182",
     name: "Exospace",
-    picture: "http://place-hold.it/400x300/fa997c/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "oneBdrm",
@@ -12018,7 +12018,7 @@ export const listings = [
   {
     id: "0adfe78b-3e31-4429-aafd-10a1af248664",
     name: "Portico",
-    picture: "http://place-hold.it/400x300/c2f0bb/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "studio",
@@ -12384,7 +12384,7 @@ export const listings = [
   {
     id: "58b0436b-baf3-4d2e-95e4-f897bc53d91f",
     name: "Ginkogene",
-    picture: "http://place-hold.it/400x300/de90e6/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "twoBdrm",
@@ -12975,7 +12975,7 @@ export const listings = [
   {
     id: "ded7fa49-b721-45fe-8559-cb48126e4c86",
     name: "Zillatide",
-    picture: "http://place-hold.it/400x300/c2f0bb/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "studio",
@@ -13751,7 +13751,7 @@ export const listings = [
   {
     id: "49496ef5-f1dc-4dd6-8c28-12b23a8d0713",
     name: "Comveyer",
-    picture: "http://place-hold.it/400x300/a1dce9/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "fourBdrm",
@@ -14538,7 +14538,7 @@ export const listings = [
   {
     id: "1a856b35-2395-4501-901d-af490318a391",
     name: "Pyrami",
-    picture: "http://place-hold.it/400x300/ebdc6a/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "oneBdrm",
@@ -15453,7 +15453,7 @@ export const listings = [
   {
     id: "3ba3cabd-cf7d-42a7-8b06-343a54af6f23",
     name: "Liquidoc",
-    picture: "http://place-hold.it/400x300/c2f0bb/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "fourBdrm",
@@ -15599,7 +15599,7 @@ export const listings = [
   {
     id: "00a14e05-7d19-4fa0-ab19-de849a0f5b9a",
     name: "Quizmo",
-    picture: "http://place-hold.it/400x300/ebdc6a/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "fourBdrm",
@@ -15837,7 +15837,7 @@ export const listings = [
   {
     id: "c517cb13-3fa0-41f2-bf89-ae1670ca2d0c",
     name: "Capscreen",
-    picture: "http://place-hold.it/400x300/fa997c/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "oneBdrm",
@@ -16334,7 +16334,7 @@ export const listings = [
   {
     id: "a3884098-3555-4ba2-a24c-34ed1ec38810",
     name: "Extragen",
-    picture: "http://place-hold.it/400x300/ebdc6a/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "fourBdrm",
@@ -16631,7 +16631,7 @@ export const listings = [
   {
     id: "84924b1b-54d7-4b48-935f-fd45c0ca520f",
     name: "Accidency",
-    picture: "http://place-hold.it/400x300/fa997c/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "fourBdrm",
@@ -17220,7 +17220,7 @@ export const listings = [
   {
     id: "f8b32ca8-3395-4b98-96c3-e69c14cdc29c",
     name: "Genmom",
-    picture: "http://place-hold.it/400x300/a1dce9/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "twoBdrm",
@@ -17942,7 +17942,7 @@ export const listings = [
   {
     id: "31190819-ae85-46d1-9c25-d4afa3a75878",
     name: "Zipak",
-    picture: "http://place-hold.it/400x300/c2f0bb/474747/?text=Image",
+    picture: "https://via.placeholder.com/400x300",
     units: [
       {
         type: "threeBdrm",
