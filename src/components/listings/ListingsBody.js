@@ -66,7 +66,7 @@ function ListingsBody({ listingsData, firstListingIndex, lastListingIndex }) {
               <div className="property-info">
                 {listing.name}
                 <br />
-                <img src={listing.picture} />
+                <img src={listing.picture} alt="placeholder" />
               </div>
               <div>
                 <table className="unit-table table-auto">
